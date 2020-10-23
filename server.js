@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const apiMain = require('./api/main')
 
@@ -9,6 +10,13 @@ app.use("/js", express.static(__dirname + "/js"));
 
 
 app.use('/', apiMain);
+
+app.get('heartbeat', (req,res) => {
+    res.json({
+        is:"working"
+    })
+});
+
 
 app.listen(3001, ()=> {
     console.log('The server is running at PORT 3001');
