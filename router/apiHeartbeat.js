@@ -1,9 +1,12 @@
 const express = require('express');
 
+//const { Router } = requir('express')
+//const router = express.Router();
+
 const heart = express();
 
 
-heart.get('/heartbeat', (req,res) => {
+heart.get('/', (req,res) => {
     res.json({
         is:"working"
     })
