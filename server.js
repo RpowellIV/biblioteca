@@ -1,6 +1,9 @@
 require("dotenv").config();
 const express = require('express');
-const apiMain = require('./api/main')
+const bodyParser = require('body-parser');
+
+const apiMain = require('./router/main');
+const apiHeartbeat = require('./router/apiHeartbeat');
 
 const app = express();
 
@@ -11,11 +14,13 @@ app.use("/js", express.static(__dirname + "/js"));
 
 app.use('/', apiMain);
 
-app.get('heartbeat', (req,res) => {
-    res.json({
-        is:"working"
-    })
-});
+app.use('/', apiHeartbeat);
+
+// app.get('/heartbeat', (req,res) => {
+//     res.json({
+//         is:"working"
+//     })
+// });
 
 
 app.listen(3001, ()=> {
