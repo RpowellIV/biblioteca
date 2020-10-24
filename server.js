@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
 
 const apiMain = require('./router/main');
 const apiHeartbeat = require('./router/apiHeartbeat');
@@ -14,7 +16,7 @@ app.use("/js", express.static(__dirname + "/js"));
 
 app.use('/', apiMain);
 
-app.use('/', apiHeartbeat);
+app.use('/api/aptHeartbeat', apiHeartbeat);
 
 // app.get('/heartbeat', (req,res) => {
 //     res.json({
