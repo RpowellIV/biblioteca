@@ -16,7 +16,7 @@ app.use("/js", express.static(__dirname + "/js"));
 
 app.use('/', apiMain);
 
-app.use('/api/aptHeartbeat', apiHeartbeat);
+app.use('/api/apiHeartbeat', apiHeartbeat);
 
 // app.get('/heartbeat', (req,res) => {
 //     res.json({
